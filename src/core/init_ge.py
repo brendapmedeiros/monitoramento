@@ -1,4 +1,5 @@
 import great_expectations as gx
+from great_expectations.core.batch import BatchRequest
 from pathlib import Path
 import yaml
 
@@ -119,17 +120,17 @@ def add_expectations_to_suite(context, suite_name="sales_quality_suite"):
     print(f"\n Adicionando expectations na suite '{suite_name}'.")
     
     # Batch para criar expectations
-    batch_request = {
-        "datasource_name": "sales_datasource",
-        "data_connector_name": "default_inferred_data_connector",
-        "data_asset_name": "sales_transactions",
-    }
-    
+    batch_request = BatchRequest(
+        datasource_name="sales_datasource",
+        data_connector_name="default_inferred_data_connector",
+        data_asset_name="sales_transactions"
+    )
+        
     validator = context.get_validator(
         batch_request=batch_request,
         expectation_suite_name=suite_name
     )
-    
+        
     expectations_added = []
     
     # Colunas esperadas
@@ -217,12 +218,12 @@ def create_checkpoint(context, checkpoint_name="sales_checkpoint"):
         "class_name": "SimpleCheckpoint",
         "run_name_template": "%Y%m%d-%H%M%S-sales-validation",
         "validations": [
-            {
-                "batch_request": {
-                    "datasource_name": "sales_datasource",
-                    "data_connector_name": "default_inferred_data_connector",
-                    "data_asset_name": "sales_transactions",
-                },
+    {
+        "batch_request": BatchRequest(
+            datasource_name="sales_datasource",
+            data_connector_name="default_inferred_data_connector",
+            data_asset_name="sales_transactions"
+        ),
                 "expectation_suite_name": "sales_quality_suite"
             }
         ]
