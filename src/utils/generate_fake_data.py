@@ -48,23 +48,23 @@ def generate_sales_data(n_records=1000, with_anomalies=True):
     if with_anomalies:
         # Inserir inconsistências propositalmente
         
-        # 1 Nulos em campos críticos 
+        # Nulos em campos importantes 
         null_indices = np.random.choice(df.index, size=int(n_records * 0.02), replace=False)
         df.loc[null_indices, 'customer_id'] = np.nan
         
-        # 2. Preços negativos 
+        # Preço negativo 
         negative_indices = np.random.choice(df.index, size=5, replace=False)
         df.loc[negative_indices, 'unit_price'] = -df.loc[negative_indices, 'unit_price']
         
-        # 3. Quantidades muito altas
+        # Quantidades altas
         high_qty_indices = np.random.choice(df.index, size=3, replace=False)
         df.loc[high_qty_indices, 'quantity'] = np.random.randint(1000, 5000, size=3)
         
-        # 4. transaction_id duplicados
+        # transaction_id duplicado
         duplicate_indices = np.random.choice(df.index[10:], size=5, replace=False)
         df.loc[duplicate_indices, 'transaction_id'] = df.loc[duplicate_indices - 10, 'transaction_id'].values
         
-        # 5. Datas que ainda não aconteceram
+        # Datas que ainda não aconteceram
         future_indices = np.random.choice(df.index, size=3, replace=False)
         df.loc[future_indices, 'date'] = datetime.now() + timedelta(days=30)
     
