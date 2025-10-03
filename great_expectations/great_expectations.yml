@@ -3,8 +3,9 @@
 config_version: 3.0
 
 #CAMINHOS
-config_file_dir: uncommitted/config_variaveis.yml
+config_file_dir: .
 
+config_variables_file_path: uncommitted/config_variaveis.yml
 
 plugins_directory: plugins/
 
