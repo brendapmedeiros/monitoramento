@@ -1,0 +1,56 @@
+{
+  "timestamp": "2025-10-21T12:27:59.293423",
+  "dataset_name": "low_quality",
+  "total_rows": 120,
+  "total_columns": 5,
+  "completeness": 79.5,
+  "uniqueness": 83.33,
+  "validity": 72.71,
+  "consistency": 87.19,
+  "quality_score": 80.3,
+  "details": {
+    "completeness": {
+      "overall": 79.5,
+      "by_column": {
+        "customer_id": 100.0,
+        "name": 65.83,
+        "email": 57.5,
+        "age": 74.17,
+        "purchase_amount": 100.0
+      }
+    },
+    "uniqueness": {
+      "overall": 83.33,
+      "duplicates_count": 20,
+      "by_column": {
+        "customer_id": 83.33,
+        "name": 57.5,
+        "email": 57.5,
+        "age": 36.67,
+        "purchase_amount": 83.33
+      }
+    },
+    "validity": {
+      "overall": 72.71,
+      "by_rule": {
+        "valid_email": 57.5,
+        "positive_age": 69.17,
+        "positive_amount": 95.0,
+        "reasonable_age": 69.17
+      }
+    },
+    "consistency": {
+      "overall": 87.19,
+      "details": {
+        "customer_id_dtype": 100.0,
+        "name_dtype": 65.83,
+        "email_dtype": 57.5,
+        "age_dtype": 100.0,
+        "purchase_amount_dtype": 100.0,
+        "customer_id_range": 100.0,
+        "age_range": 74.17,
+        "purchase_amount_range": 100.0
+      }
+    }
+  }
+}
