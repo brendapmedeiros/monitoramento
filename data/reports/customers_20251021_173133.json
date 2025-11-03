@@ -1,0 +1,74 @@
+{
+  "dataset_name": "customers",
+  "timestamp": "2025-10-21T17:31:33.783805",
+  "dimensions": {
+    "rows": 100,
+    "columns": 5
+  },
+  "status": {
+    "level": "CRITICAL",
+    "symbol": "❌",
+    "message": "Great Expectations falhou"
+  },
+  "great_expectations": {
+    "enabled": true,
+    "success": false,
+    "stats": {
+      "evaluated": 8,
+      "successful": 4,
+      "percent": 50.0
+    }
+  },
+  "metrics": {
+    "quality_score": 100.0,
+    "completeness": 100.0,
+    "uniqueness": 100.0,
+    "validity": 100.0,
+    "consistency": 100.0,
+    "details": {
+      "completeness": {
+        "overall": 100.0,
+        "by_column": {
+          "customer_id": 100.0,
+          "name": 100.0,
+          "email": 100.0,
+          "age": 100.0,
+          "purchase_amount": 100.0
+        }
+      },
+      "uniqueness": {
+        "overall": 100.0,
+        "duplicates_count": 0,
+        "by_column": {
+          "customer_id": 100.0,
+          "name": 100.0,
+          "email": 100.0,
+          "age": 50.0,
+          "purchase_amount": 100.0
+        }
+      },
+      "validity": {
+        "overall": 100.0,
+        "by_rule": {
+          "valid_email": 100.0,
+          "positive_age": 100.0,
+          "positive_amount": 100.0,
+          "reasonable_age": 100.0
+        }
+      },
+      "consistency": {
+        "overall": 100.0,
+        "details": {
+          "customer_id_dtype": 100.0,
+          "name_dtype": 100.0,
+          "email_dtype": 100.0,
+          "age_dtype": 100.0,
+          "purchase_amount_dtype": 100.0,
+          "customer_id_range": 100.0,
+          "age_range": 100.0,
+          "purchase_amount_range": 100.0
+        }
+      }
+    }
+  }
+}
