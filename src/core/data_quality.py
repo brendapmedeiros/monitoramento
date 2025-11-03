@@ -1,8 +1,3 @@
-"""
-Sistema de Métricas de Data Quality
-Calcula e monitora métricas de qualidade de dados
-"""
-
 import pandas as pd
 import numpy as np
 from typing import Dict, List, Optional, Any
@@ -41,7 +36,7 @@ class DataQualityMetrics:
     def __init__(self, dataset_name: str = "default"):
         self.dataset_name = dataset_name
         self.metrics_history: List[QualityMetrics] = []
-        logger.info(f"Inicializado DataQualityMetrics para dataset: {dataset_name}")
+        logger.info(f"Inicializado métricas de qualidade para o dataset: {dataset_name}")
     
     def calculate_completeness(self, df: pd.DataFrame) -> Dict[str, float]:
         """
@@ -271,24 +266,23 @@ class DataQualityMetrics:
             metrics: Objeto QualityMetrics
             
         Returns:
-            String com resumo formatado
+            Resumo formatado
         """
         summary = f"""
-╔═══════════════════════════════════════════════════════╗
-║                RELATÓRIO DE QUALIDADE                 ║
-╠═══════════════════════════════════════════════════════╣
-║ Dataset: {metrics.dataset_name:<43} ║
-║ Timestamp: {metrics.timestamp:<41} ║
-║ Dimensões: {metrics.total_rows} linhas x {metrics.total_columns} colunas{' '*(27-len(str(metrics.total_rows))-len(str(metrics.total_columns)))} ║
-╠═══════════════════════════════════════════════════════╣
-║ MÉTRICAS DE QUALIDADE:                               ║
-║                                                       ║
-║ 📊 Quality Score:      {metrics.quality_score:>6.2f}%{' '*22} ║
-║ ✓  Completude:         {metrics.completeness:>6.2f}%{' '*22} ║
-║ ✓  Unicidade:          {metrics.uniqueness:>6.2f}%{' '*22} ║
-║ ✓  Validade:           {metrics.validity:>6.2f}%{' '*22} ║
-║ ✓  Consistência:       {metrics.consistency:>6.2f}%{' '*22} ║
-╚═══════════════════════════════════════════════════════╝
+
+                RELATÓRIO DE QUALIDADE                 
+
+ ataset: {metrics.dataset_name:<43} 
+ Timestamp: {metrics.timestamp:<41} 
+ Dimensões: {metrics.total_rows} linhas x {metrics.total_columns} colunas{' '*(27-len(str(metrics.total_rows))-len(str(metrics.total_columns)))} 
+ MÉTRICAS DE QUALIDADE:                               
+                                                       
+  Quality Score:      {metrics.quality_score:>6.2f}%{' '*22} 
+ ✓  Completude:         {metrics.completeness:>6.2f}%{' '*22} 
+ ✓  Unicidade:          {metrics.uniqueness:>6.2f}%{' '*22} 
+ ✓  Validade:           {metrics.validity:>6.2f}%{' '*22} 
+ ✓  Consistência:       {metrics.consistency:>6.2f}%{' '*22} 
+
 """
         return summary
     
@@ -358,7 +352,7 @@ class DataQualityMetrics:
             return 100.0
     
     def _check_range_consistency(self, series: pd.Series) -> float:
-        """Verifica se valores estão em range razoável (sem outliers extremos)"""
+        """Verifica se valores estão em range razoável"""
         try:
             Q1 = series.quantile(0.25)
             Q3 = series.quantile(0.75)
@@ -372,9 +366,7 @@ class DataQualityMetrics:
             return 100.0
 
 
-# Exemplo de uso
 if __name__ == "__main__":
-    # Criar dataset de exemplo
     sample_data = {
         'id': [1, 2, 3, 4, 5, 5, 7, 8],
         'name': ['Alice', 'Bob', 'Charlie', None, 'Eve', 'Frank', 'Grace', 'Henry'],
@@ -387,14 +379,10 @@ if __name__ == "__main__":
     
     df = pd.DataFrame(sample_data)
     
-    # Inicializar sistema de métricas
     dq = DataQualityMetrics(dataset_name="employees")
     
-    # Executar análise
     metrics = dq.analyze_dataset(df, key_columns=['id'])
-    
-    # Imprimir resumo
+
     print(dq.get_quality_summary(metrics))
     
-    # Salvar métricas
     dq.save_metrics(metrics, 'quality_metrics.json')
