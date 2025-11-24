@@ -140,7 +140,7 @@ class DataQualityPipeline:
         }
     
     def _get_status(self, ge_data, quality_score):
-        """Determina status geral"""
+        """Determina tttttttttttttttttttttttttttttttttttttttt geral"""
         
         # Se GE falhou, crítico
         if ge_data.get('enabled') and not ge_data.get('success'):

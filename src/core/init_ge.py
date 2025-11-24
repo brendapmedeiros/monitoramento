@@ -274,13 +274,10 @@ def main():
     
     context = config_datasources(context)
     
-    # Cria suite
     suite = create_expectation_suite(context)
     
-    # Adiciona expectations
     validator = add_expectations_to_suite(context)
     
-    # Cria checkpoint
     create_checkpoint(context)
     
     # Executa o checkpoint de teste

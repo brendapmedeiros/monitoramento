@@ -102,7 +102,7 @@ class DataQualityMetrics:
     def calculate_validity(self, df: pd.DataFrame, 
                           validation_rules: Optional[Dict[str, Any]] = None) -> Dict[str, float]:
         """
-        Calcula porcentagem de dados que seguem regras de negócio
+        Calcula porcentagem de dados que seguem as regras definidas
         
         Args:
             df: DataFrame para análise
@@ -112,7 +112,6 @@ class DataQualityMetrics:
             Dict com validade geral e por regra
         """
         if not validation_rules:
-            # Validações básicas 
             validation_rules = self._get_default_validations(df)
         
         valid_counts = []

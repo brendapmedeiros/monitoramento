@@ -1,0 +1,141 @@
+# Config. Slack
+slack:
+  enabled: true
+  bot_token: ${SLACK_BOT_TOKEN}  
+  
+
+  channels:
+    info: ${SLACK_CHANNEL_ID}
+    warning: ${SLACK_ALERT_CHANNEL_WARNING}
+    error: ${SLACK_ALERT_CHANNEL_WARNING}
+    critical: ${SLACK_ALERT_CHANNEL_CRITICAL}
+  
+
+  mentions:
+    critical:
+      - USER_ID1  
+      - USER_ID2  
+    
+
+  retry_attempts: 3
+  timeout_seconds: 10
+
+rate_limiting:
+  enabled: true
+  max_alerts_per_hour: 10
+  cooldown_minutes: 30
+  
+  # Alertas críticos sempre são enviados
+  bypass_critical: true
+
+quality_thresholds:
+  completeness:
+    warning: 0.95  
+    error: 0.90     
+    critical: 0.80 
+  
+  
+  uniqueness:
+    warning: 0.98
+    error: 0.95
+    critical: 0.90
+  
+
+  validity:
+    warning: 0.95
+    error: 0.90
+    critical: 0.85
+  
+  consistency:
+    warning: 0.98
+    error: 0.95
+    critical: 0.90
+  
+
+  freshness:
+    warning: 24    
+    error: 48      
+    critical: 72   
+
+# Detecção de Anomalias
+anomaly_detection:
+  enabled: true
+  
+
+  thresholds:
+    z_score: 3.0        
+    iqr_multiplier: 1.5 
+    
+  # Métricas para monitorar
+  metrics:
+    - name: row_count
+      alert_on_deviation: true
+      severity: error
+      
+    - name: null_percentage
+      alert_on_deviation: true
+      severity: warning
+      
+    - name: processing_time
+      alert_on_deviation: true
+      severity: warning
+
+# Relatórios Agendados
+scheduled_reports:
+  daily_summary:
+    enabled: true
+    time: "09:00"  
+    channel: 
+    include_charts: false
+  
+  # Relatório semanal
+  weekly_report:
+    enabled: true
+    day: "monday"
+    time: "10:00"
+    channel: 
+    include_charts: true
+    include_trends: true
+
+
+storage:
+  save_history: true
+  history_path: "./data/alert_history"
+  
+
+  cleanup:
+    enabled: true
+    keep_days: 30  
+
+# Regras Customizadas
+custom_rules:
+  - name: volume_drop
+    enabled: true
+    condition: "current_rows < (avg_rows_7d * 0.5)"
+    severity: critical
+    message: "Volume de dados caiu mais de 50% vs média 7 dias"
+  
+  - name: critical_column_nulls
+    enabled: true
+    condition: "null_percentage > 0.05"
+    columns: ["customer_id", "transaction_id", "amount"]
+    severity: error
+    message: "Coluna crítica com mais de 5% de valores nulos"
+
+# Integrações Adicionais 
+integrations:
+  email:
+    enabled: false
+    smtp_server: ""
+    recipients: []
+  
+  webhook:
+    enabled: false
+    url: ""
+    headers: {}
+
+debug:
+  enabled: false
+  log_level: INFO
+  log_all_checks: false
+  dry_run: false 
