@@ -139,7 +139,7 @@ class AlertingSystem:
             severity: Severidade do alerta
             
         Returns:
-            "Alert" se anomalia detectada, "None" caso contrário
+            "Alert" se tiver anomalia detectada, "None" caso contrário
         """
         min_val, max_val = expected_range
         
