@@ -4,7 +4,7 @@ from datetime import datetime, timedelta
 from typing import Dict, List, Optional
 import json
 from collections import defaultdict
-
+from typing import Dict, List, Optional, Tuple
 
 class AlertSeverity(Enum):
     INFO = "info"
@@ -56,7 +56,7 @@ class AlertRateLimiter:
         self.alert_history: Dict[str, List[datetime]] = defaultdict(list)
         self.cooldown_until: Dict[str, datetime] = {}
     
-    def can_send_alert(self, alert_key: str) -> tuple[bool, str]:
+    def can_send_alert(self, alert_key: str) -> Tuple[bool, str]:
         """
         Verifica se pode enviar alerta
         
@@ -127,7 +127,7 @@ class AlertManager:
         self.alerts.append(alert)
         return alert
     
-    def should_send_alert(self, alert: Alert) -> tuple[bool, str]:
+    def should_send_alert(self, alert: Alert) -> Tuple[bool, str]:
         if self.rate_limiter is None:
             return True, "Rate limiting desabilitado"
         

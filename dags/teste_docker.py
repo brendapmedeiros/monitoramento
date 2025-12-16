@@ -99,4 +99,6 @@ task_volumes = PythonOperator(
 )
 
 # Ordem de execução
-task_hello > task_python > task_imports > task_volumes
+task_hello.set_downstream(task_python)
+task_python.set_downstream(task_imports)
+task_imports.set_downstream(task_volumes)

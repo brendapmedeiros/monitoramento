@@ -6,13 +6,12 @@ from slack_sdk.errors import SlackApiError
 from tenacity import retry, stop_after_attempt, wait_exponential
 import logging
 
-from alert_manager import Alert, AlertSeverity
+from core.alert_manager import Alert, AlertSeverity
 
 logger = logging.getLogger(__name__)
 
 
 class SlackNotifier:
-    """Gerenciador de notificações Slack"""
     SEVERITY_CONFIG = {
         AlertSeverity.INFO: {
             "color": "#36a64f",  
@@ -26,12 +25,12 @@ class SlackNotifier:
         },
         AlertSeverity.ERROR: {
             "color": "#e01e5a",  
-            "emoji": "🚨",
+            "emoji": "❌",
             "priority": "Erro"
         },
         AlertSeverity.CRITICAL: {
             "color": "#8b0000",  
-            "emoji": "🔥",
+            "emoji": "🚨",
             "priority": "CRÍTICO"
         }
     }
@@ -198,7 +197,7 @@ class SlackNotifier:
                 }]
             })
         
-        # Cor lateral (contextual color)
+        # Cor lateral 
         blocks.append({
             "type": "context",
             "elements": [{
@@ -293,7 +292,7 @@ class SlackNotifier:
                  title: str,
                  channel: Optional[str] = None,
                  comment: Optional[str] = None) -> bool:
-        """Envia arquivo para o Slack """
+        ## Envia arquivo para o Slack
         channel = channel or self.default_channel
         
         try:
