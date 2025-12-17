@@ -147,7 +147,7 @@ with DAG(
                     'anomaly_percentage': report.anomaly_percentage,
                     'methods_used': report.methods_used,
                     'anomalies_by_method': report.anomalies_by_method,
-                    'severity_distribution': report.details['severity_distribution']
+                    'severity_distribution': report.details['distribuicao_severity']
                 }
             )
             
@@ -212,9 +212,9 @@ with DAG(
 {chr(10).join([f"• {m}: {c} anomalias" for m, c in anomaly_report['anomalies_by_method'].items()])}
 
  *Severidade das Anomalias:*
-Alta: {report.details['distribuicao_severity']['high']}
-Média: {report.details['distribuicao_severity']['medium']}  
-Baixa: {report.details['distribuicao_severity']['low']}
+• Alta: {anomaly_report['severity_distribution']['high']}
+• Média: {anomaly_report['severity_distribution']['medium']}
+• Baixa: {anomaly_report['severity_distribution']['low']}
 
 *Dataset:*
 • Total de registros: {quality_metrics['total_rows']:,}

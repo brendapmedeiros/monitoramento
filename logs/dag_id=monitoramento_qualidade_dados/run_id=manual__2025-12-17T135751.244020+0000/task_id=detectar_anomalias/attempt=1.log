@@ -1,0 +1,40 @@
+[2025-12-17T13:57:58.401+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: monitoramento_qualidade_dados.detectar_anomalias manual__2025-12-17T13:57:51.244020+00:00 [queued]>
+[2025-12-17T13:57:58.408+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: monitoramento_qualidade_dados.detectar_anomalias manual__2025-12-17T13:57:51.244020+00:00 [queued]>
+[2025-12-17T13:57:58.409+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 3
+[2025-12-17T13:57:58.422+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): detectar_anomalias> on 2025-12-17 13:57:51.244020+00:00
+[2025-12-17T13:57:58.429+0000] {standard_task_runner.py:60} INFO - Started process 3263 to run task
+[2025-12-17T13:57:58.432+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'monitoramento_qualidade_dados', 'detectar_anomalias', 'manual__2025-12-17T13:57:51.244020+00:00', '--job-id', '35', '--raw', '--subdir', 'DAGS_FOLDER/monitoramento_principal.py', '--cfg-path', '/tmp/tmpj4v2kl5o']
+[2025-12-17T13:57:58.434+0000] {standard_task_runner.py:88} INFO - Job 35: Subtask detectar_anomalias
+[2025-12-17T13:57:58.485+0000] {task_command.py:423} INFO - Running <TaskInstance: monitoramento_qualidade_dados.detectar_anomalias manual__2025-12-17T13:57:51.244020+00:00 [running]> on host 9e0318b626f9
+[2025-12-17T13:57:58.570+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='time-dados' AIRFLOW_CTX_DAG_ID='monitoramento_qualidade_dados' AIRFLOW_CTX_TASK_ID='detectar_anomalias' AIRFLOW_CTX_EXECUTION_DATE='2025-12-17T13:57:51.244020+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-12-17T13:57:51.244020+00:00'
+[2025-12-17T13:57:58.572+0000] {logging_mixin.py:188} INFO -  Detectando anomalias...
+[2025-12-17T13:57:58.587+0000] {detector_anomalias.py:46} INFO - AnomalyDetector inicializado para: sales_transactions
+[2025-12-17T13:57:58.587+0000] {detector_anomalias.py:64} INFO - Iniciando detecção de anomalias com métodos: ['zscore', 'iqr', 'isolation_forest']
+[2025-12-17T13:57:58.765+0000] {detector_anomalias.py:110} INFO - Detecção concluída: 51 anomalias (5.10%)
+[2025-12-17T13:57:58.766+0000] {logging_mixin.py:188} INFO - 
+
+        RELATÓRIO DE DETECÇÃO DE ANOMALIAS             
+
+ Dataset: sales_transactions                         
+ Timestamp: 2025-12-17T13:57:58.740284                
+ Total de linhas: 1000                                  
+
+ ANOMALIAS DETECTADAS:                                  
+   Total: 51                                            
+   Percentual: 5.1%                                     
+
+ POR MÉTODO:                                            
+[2025-12-17T13:57:58.767+0000] {logging_mixin.py:188} INFO -    zscore: 10                                           
+[2025-12-17T13:57:58.767+0000] {logging_mixin.py:188} INFO -    iqr: 18                                           
+[2025-12-17T13:57:58.767+0000] {logging_mixin.py:188} INFO -    isolation_forest: 50                                           
+[2025-12-17T13:57:58.768+0000] {logging_mixin.py:188} INFO - 
+ SEVERIDADE:                                            
+Alta: 1
+Média: 9
+Baixa: 41
+[2025-12-17T13:57:58.775+0000] {detector_anomalias.py:321} INFO - Relatório salvo: /opt/***/data/reports/anomaly_report_20251217_135758.json
+[2025-12-17T13:57:58.788+0000] {logging_mixin.py:188} INFO -  Detecção concluída: 51 anomalias (5.10%)
+[2025-12-17T13:57:58.789+0000] {python.py:201} INFO - Done. Returned value was: {'status': 'success', 'total_anomalies': 51, 'report_file': '/opt/***/data/reports/anomaly_report_20251217_135758.json'}
+[2025-12-17T13:57:58.805+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=monitoramento_qualidade_dados, task_id=detectar_anomalias, execution_date=20251217T135751, start_date=20251217T135758, end_date=20251217T135758
+[2025-12-17T13:57:58.847+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2025-12-17T13:57:58.875+0000] {taskinstance.py:3280} INFO - 1 downstream tasks scheduled from follow-on schedule check

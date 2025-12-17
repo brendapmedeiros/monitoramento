@@ -1,0 +1,39 @@
+[2025-12-17T13:58:28.332+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: monitoramento_qualidade_dados.validar_qualidade manual__2025-12-17T13:58:23.691846+00:00 [queued]>
+[2025-12-17T13:58:28.340+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: monitoramento_qualidade_dados.validar_qualidade manual__2025-12-17T13:58:23.691846+00:00 [queued]>
+[2025-12-17T13:58:28.341+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 3
+[2025-12-17T13:58:28.355+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): validar_qualidade> on 2025-12-17 13:58:23.691846+00:00
+[2025-12-17T13:58:28.361+0000] {standard_task_runner.py:60} INFO - Started process 3307 to run task
+[2025-12-17T13:58:28.365+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'monitoramento_qualidade_dados', 'validar_qualidade', 'manual__2025-12-17T13:58:23.691846+00:00', '--job-id', '39', '--raw', '--subdir', 'DAGS_FOLDER/monitoramento_principal.py', '--cfg-path', '/tmp/tmp2ia_mutp']
+[2025-12-17T13:58:28.367+0000] {standard_task_runner.py:88} INFO - Job 39: Subtask validar_qualidade
+[2025-12-17T13:58:28.409+0000] {task_command.py:423} INFO - Running <TaskInstance: monitoramento_qualidade_dados.validar_qualidade manual__2025-12-17T13:58:23.691846+00:00 [running]> on host 9e0318b626f9
+[2025-12-17T13:58:28.500+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='time-dados' AIRFLOW_CTX_DAG_ID='monitoramento_qualidade_dados' AIRFLOW_CTX_TASK_ID='validar_qualidade' AIRFLOW_CTX_EXECUTION_DATE='2025-12-17T13:58:23.691846+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-12-17T13:58:23.691846+00:00'
+[2025-12-17T13:58:28.502+0000] {logging_mixin.py:188} INFO - Validando qualidade...
+[2025-12-17T13:58:28.518+0000] {data_quality.py:39} INFO - Inicializado métricas de qualidade para o dataset: sales_transactions
+[2025-12-17T13:58:28.519+0000] {data_quality.py:219} INFO - Iniciando análise de qualidade do dataset 'sales_transactions'
+[2025-12-17T13:58:28.519+0000] {data_quality.py:220} INFO - Dimensões: 1000 linhas x 11 colunas
+[2025-12-17T13:58:28.524+0000] {data_quality.py:61} INFO - Completude calculada: 99.82%
+[2025-12-17T13:58:28.526+0000] {data_quality.py:94} INFO - Unicidade calculada: 99.50%
+[2025-12-17T13:58:28.533+0000] {data_quality.py:134} INFO - Validade calculada: 99.77%
+[2025-12-17T13:58:28.542+0000] {data_quality.py:169} INFO - Consistência calculada: 99.85%
+[2025-12-17T13:58:28.543+0000] {data_quality.py:201} INFO - Quality Score calculado: 99.73
+[2025-12-17T13:58:28.544+0000] {data_quality.py:256} INFO - Análise concluída. Quality Score: 99.73
+[2025-12-17T13:58:28.544+0000] {logging_mixin.py:188} INFO - 
+
+                RELATÓRIO DE QUALIDADE                 
+
+ ataset: sales_transactions                          
+ Timestamp: 2025-12-17T13:58:28.544060                
+ Dimensões: 1000 linhas x 11 colunas                      
+ MÉTRICAS DE QUALIDADE:                               
+                                                       
+  Quality Score:       99.73%                       
+ ✓  Completude:          99.82%                       
+ ✓  Unicidade:           99.50%                       
+ ✓  Validade:            99.77%                       
+ ✓  Consistência:        99.85%
+[2025-12-17T13:58:28.553+0000] {data_quality.py:299} INFO - Métricas salvas em: /opt/***/data/reports/quality_metrics_20251217_135828.json
+[2025-12-17T13:58:28.571+0000] {logging_mixin.py:188} INFO -  Validação concluída. Score: 99.73
+[2025-12-17T13:58:28.574+0000] {python.py:201} INFO - Done. Returned value was: {'status': 'success', 'quality_score': 99.73, 'metrics_file': '/opt/***/data/reports/quality_metrics_20251217_135828.json'}
+[2025-12-17T13:58:28.602+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=monitoramento_qualidade_dados, task_id=validar_qualidade, execution_date=20251217T135823, start_date=20251217T135828, end_date=20251217T135828
+[2025-12-17T13:58:28.657+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2025-12-17T13:58:28.680+0000] {taskinstance.py:3280} INFO - 1 downstream tasks scheduled from follow-on schedule check

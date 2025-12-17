@@ -1,0 +1,25 @@
+[2025-12-17T18:00:11.425+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: monitoramento_qualidade_dados.gerar_relatorio_final scheduled__2025-12-17T12:00:00+00:00 [queued]>
+[2025-12-17T18:00:11.434+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: monitoramento_qualidade_dados.gerar_relatorio_final scheduled__2025-12-17T12:00:00+00:00 [queued]>
+[2025-12-17T18:00:11.434+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 3
+[2025-12-17T18:00:11.448+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): gerar_relatorio_final> on 2025-12-17 12:00:00+00:00
+[2025-12-17T18:00:11.457+0000] {standard_task_runner.py:60} INFO - Started process 11380 to run task
+[2025-12-17T18:00:11.465+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'monitoramento_qualidade_dados', 'gerar_relatorio_final', 'scheduled__2025-12-17T12:00:00+00:00', '--job-id', '47', '--raw', '--subdir', 'DAGS_FOLDER/monitoramento_principal.py', '--cfg-path', '/tmp/tmpst8w0z2u']
+[2025-12-17T18:00:11.469+0000] {standard_task_runner.py:88} INFO - Job 47: Subtask gerar_relatorio_final
+[2025-12-17T18:00:11.535+0000] {task_command.py:423} INFO - Running <TaskInstance: monitoramento_qualidade_dados.gerar_relatorio_final scheduled__2025-12-17T12:00:00+00:00 [running]> on host 9e0318b626f9
+[2025-12-17T18:00:11.610+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='time-dados' AIRFLOW_CTX_DAG_ID='monitoramento_qualidade_dados' AIRFLOW_CTX_TASK_ID='gerar_relatorio_final' AIRFLOW_CTX_EXECUTION_DATE='2025-12-17T12:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-12-17T12:00:00+00:00'
+[2025-12-17T18:00:11.612+0000] {logging_mixin.py:188} INFO -  Gerando relatório final...
+[2025-12-17T18:00:11.649+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.8/site-packages/***/utils/context.py:315 AirflowContextDeprecationWarning: Accessing 'execution_date' from the template is deprecated and will be removed in a future version. Please use 'data_interval_start' or 'logical_date' instead.
+[2025-12-17T18:00:11.653+0000] {logging_mixin.py:188} INFO - Relatório final salvo: /opt/***/data/reports/final_report_20251217_180011.json
+[2025-12-17T18:00:11.653+0000] {logging_mixin.py:188} INFO - 
+==================================================
+[2025-12-17T18:00:11.654+0000] {logging_mixin.py:188} INFO -  RESUMO DA EXECUÇÃO
+[2025-12-17T18:00:11.654+0000] {logging_mixin.py:188} INFO - ==================================================
+[2025-12-17T18:00:11.654+0000] {logging_mixin.py:188} INFO - Quality Score: 99.73%
+[2025-12-17T18:00:11.654+0000] {logging_mixin.py:188} INFO - Anomalias: 51 (5.10%)
+[2025-12-17T18:00:11.654+0000] {logging_mixin.py:188} INFO - Alerta Enviado: 
+[2025-12-17T18:00:11.655+0000] {logging_mixin.py:188} INFO - Relatório: /opt/***/data/reports/final_report_20251217_180011.json
+[2025-12-17T18:00:11.655+0000] {logging_mixin.py:188} INFO - ==================================================
+[2025-12-17T18:00:11.655+0000] {python.py:201} INFO - Done. Returned value was: {'execution_info': {'dag_id': 'monitoramento_qualidade_dados', 'run_id': 'scheduled__2025-12-17T12:00:00+00:00', 'execution_date': '2025-12-17 12:00:00+00:00', 'timestamp': '2025-12-17T18:00:11.650374'}, 'data_info': {'rows': 1000, 'columns': 11, 'file': 'sales_transactions.csv'}, 'quality_metrics': {'quality_score': 99.73, 'completeness': 99.82, 'uniqueness': 99.5, 'validity': 99.77, 'consistency': 99.85, 'total_rows': 1000, 'total_columns': 11}, 'anomaly_report': {'total_anomalies': 51, 'anomaly_percentage': 5.1, 'methods_used': ['zscore', 'iqr', 'isolation_forest'], 'anomalies_by_method': {'zscore': 10, 'iqr': 18, 'isolation_forest': 50}, 'severity_distribution': {'low': 41, 'medium': 9, 'high': 1}}, 'alert_status': {'status': 'error', 'error': 'Token não configurado!'}, 'summary': {'status': 'completed', 'quality_score': 99.73, 'anomalies_found': 51, 'alert_sent': False}}
+[2025-12-17T18:00:11.678+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=monitoramento_qualidade_dados, task_id=gerar_relatorio_final, execution_date=20251217T120000, start_date=20251217T180011, end_date=20251217T180011
+[2025-12-17T18:00:11.718+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2025-12-17T18:00:11.733+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check
