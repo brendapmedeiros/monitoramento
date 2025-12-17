@@ -1,0 +1,47 @@
+[2025-12-17T12:52:45.352+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: monitoramento_qualidade_dados.detectar_anomalias manual__2025-12-17T12:47:33.513802+00:00 [queued]>
+[2025-12-17T12:52:45.359+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: monitoramento_qualidade_dados.detectar_anomalias manual__2025-12-17T12:47:33.513802+00:00 [queued]>
+[2025-12-17T12:52:45.360+0000] {taskinstance.py:2170} INFO - Starting attempt 2 of 3
+[2025-12-17T12:52:45.375+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): detectar_anomalias> on 2025-12-17 12:47:33.513802+00:00
+[2025-12-17T12:52:45.391+0000] {standard_task_runner.py:60} INFO - Started process 586 to run task
+[2025-12-17T12:52:45.395+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'monitoramento_qualidade_dados', 'detectar_anomalias', 'manual__2025-12-17T12:47:33.513802+00:00', '--job-id', '23', '--raw', '--subdir', 'DAGS_FOLDER/monitoramento_principal.py', '--cfg-path', '/tmp/tmp0tlggkmx']
+[2025-12-17T12:52:45.398+0000] {standard_task_runner.py:88} INFO - Job 23: Subtask detectar_anomalias
+[2025-12-17T12:52:45.457+0000] {task_command.py:423} INFO - Running <TaskInstance: monitoramento_qualidade_dados.detectar_anomalias manual__2025-12-17T12:47:33.513802+00:00 [running]> on host 9e0318b626f9
+[2025-12-17T12:52:45.542+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='time-dados' AIRFLOW_CTX_DAG_ID='monitoramento_qualidade_dados' AIRFLOW_CTX_TASK_ID='detectar_anomalias' AIRFLOW_CTX_EXECUTION_DATE='2025-12-17T12:47:33.513802+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-12-17T12:47:33.513802+00:00'
+[2025-12-17T12:52:45.543+0000] {logging_mixin.py:188} INFO -  Detectando anomalias...
+[2025-12-17T12:52:45.560+0000] {detector_anomalias.py:46} INFO - AnomalyDetector inicializado para: sales_transactions
+[2025-12-17T12:52:45.561+0000] {detector_anomalias.py:64} INFO - Iniciando detecção de anomalias com métodos: ['zscore', 'iqr', 'isolation_forest']
+[2025-12-17T12:52:45.723+0000] {detector_anomalias.py:110} INFO - Detecção concluída: 51 anomalias (5.10%)
+[2025-12-17T12:52:45.724+0000] {logging_mixin.py:188} INFO - 
+
+        RELATÓRIO DE DETECÇÃO DE ANOMALIAS             
+
+ Dataset: sales_transactions                         
+ Timestamp: 2025-12-17T12:52:45.693114                
+ Total de linhas: 1000                                  
+
+ ANOMALIAS DETECTADAS:                                  
+   Total: 51                                            
+   Percentual: 5.1%                                     
+
+ POR MÉTODO:                                            
+[2025-12-17T12:52:45.724+0000] {logging_mixin.py:188} INFO -    zscore: 10                                           
+[2025-12-17T12:52:45.725+0000] {logging_mixin.py:188} INFO -    iqr: 18                                           
+[2025-12-17T12:52:45.726+0000] {logging_mixin.py:188} INFO -    isolation_forest: 50                                           
+[2025-12-17T12:52:45.726+0000] {logging_mixin.py:188} INFO -  Erro na detecção: 'severity_distribution'
+[2025-12-17T12:52:45.727+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 428, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 199, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 216, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/monitoramento_principal.py", line 134, in detectar_anomalias
+    detector.print_report(report)
+  File "/opt/airflow/src/core/detector_anomalias.py", line 344, in print_report
+    print(f"""
+KeyError: 'severity_distribution'
+[2025-12-17T12:52:45.742+0000] {taskinstance.py:1138} INFO - Marking task as UP_FOR_RETRY. dag_id=monitoramento_qualidade_dados, task_id=detectar_anomalias, execution_date=20251217T124733, start_date=20251217T125245, end_date=20251217T125245
+[2025-12-17T12:52:45.752+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 23 for task detectar_anomalias ('severity_distribution'; 586)
+[2025-12-17T12:52:45.768+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2025-12-17T12:52:45.786+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

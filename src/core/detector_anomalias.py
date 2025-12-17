@@ -343,10 +343,9 @@ class DetectorAnomalias:
         
         print(f"""
  SEVERIDADE:                                            
-   Alta: {report.details['severity_distribution']['high']:<46} 
-   Média: {report.details['severity_distribution']['medium']:<45} 
-   Baixa: {report.details['severity_distribution']['low']:<45} 
-
+Alta: {report.details['distribuicao_severity']['high']}
+Média: {report.details['distribuicao_severity']['medium']}
+Baixa: {report.details['distribuicao_severity']['low']}
 """)
 
 
@@ -368,7 +367,7 @@ if __name__ == "__main__":
         'score': [150, -20, 200, -50, 180]  
     }
     
-    # Agregar informaações
+    # Agrega informaações
     df = pd.DataFrame(normal_data)
     df_anomalies = pd.DataFrame(anomaly_data)
     df = pd.concat([df, df_anomalies], ignore_index=True)
@@ -383,7 +382,7 @@ if __name__ == "__main__":
     output_dir.mkdir(parents=True, exist_ok=True)
     detector.save_report(report, "data/anomalies/anomaly_report.json")
     
-    # Mostra anomalias detectadas
+    # Mostra anomalias 
     anomaly_indices = set(report.details['anomaly_indices'])
     anomalies_df = detector.get_anomaly_details(df, anomaly_indices)
     

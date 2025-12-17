@@ -1,0 +1,51 @@
+{
+  "execution_info": {
+    "dag_id": "monitoramento_qualidade_dados",
+    "run_id": "manual__2025-12-17T13:05:29.682361+00:00",
+    "execution_date": "2025-12-17 13:05:29.682361+00:00",
+    "timestamp": "2025-12-17T13:05:40.461149"
+  },
+  "data_info": {
+    "rows": 1000,
+    "columns": 11,
+    "file": "sales_transactions.csv"
+  },
+  "quality_metrics": {
+    "quality_score": 99.73,
+    "completeness": 99.82,
+    "uniqueness": 99.5,
+    "validity": 99.77,
+    "consistency": 99.85,
+    "total_rows": 1000,
+    "total_columns": 11
+  },
+  "anomaly_report": {
+    "total_anomalies": 51,
+    "anomaly_percentage": 5.1,
+    "methods_used": [
+      "zscore",
+      "iqr",
+      "isolation_forest"
+    ],
+    "anomalies_by_method": {
+      "zscore": 10,
+      "iqr": 18,
+      "isolation_forest": 50
+    },
+    "severity_distribution": {
+      "low": 41,
+      "medium": 9,
+      "high": 1
+    }
+  },
+  "alert_status": {
+    "status": "error",
+    "error": "Token não configurado!"
+  },
+  "summary": {
+    "status": "completed",
+    "quality_score": 99.73,
+    "anomalies_found": 51,
+    "alert_sent": false
+  }
+}

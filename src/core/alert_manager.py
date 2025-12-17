@@ -15,7 +15,6 @@ class AlertSeverity(Enum):
 
 @dataclass
 class Alert:
-    """Modelo de alerta"""
     severity: AlertSeverity
     title: str
     message: str

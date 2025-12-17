@@ -355,3 +355,73 @@
 [2025-12-16T00:30:42.763+0000] {logging_mixin.py:188} INFO - [2025-12-16T00:30:42.763+0000] {dag.py:3036} INFO - Sync 1 DAGs
 [2025-12-16T00:30:42.775+0000] {logging_mixin.py:188} INFO - [2025-12-16T00:30:42.775+0000] {dag.py:3823} INFO - Setting next_dagrun for teste_docker_airflow to None, run_after=None
 [2025-12-16T00:30:42.799+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/teste_docker.py took 0.088 seconds
+[2025-12-16T00:31:12.915+0000] {processor.py:161} INFO - Started process (PID=4389) to work on /opt/airflow/dags/teste_docker.py
+[2025-12-16T00:31:12.916+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/teste_docker.py for tasks to queue
+[2025-12-16T00:31:12.917+0000] {logging_mixin.py:188} INFO - [2025-12-16T00:31:12.917+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/teste_docker.py
+[2025-12-16T00:31:12.942+0000] {processor.py:840} INFO - DAG(s) 'teste_docker_airflow' retrieved from /opt/airflow/dags/teste_docker.py
+[2025-12-16T00:31:12.970+0000] {logging_mixin.py:188} INFO - [2025-12-16T00:31:12.970+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-12-16T00:31:12.980+0000] {logging_mixin.py:188} INFO - [2025-12-16T00:31:12.980+0000] {dag.py:3823} INFO - Setting next_dagrun for teste_docker_airflow to None, run_after=None
+[2025-12-16T00:31:13.005+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/teste_docker.py took 0.094 seconds
+[2025-12-16T00:31:43.256+0000] {processor.py:161} INFO - Started process (PID=4409) to work on /opt/airflow/dags/teste_docker.py
+[2025-12-16T00:31:43.257+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/teste_docker.py for tasks to queue
+[2025-12-16T00:31:43.258+0000] {logging_mixin.py:188} INFO - [2025-12-16T00:31:43.258+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/teste_docker.py
+[2025-12-16T00:31:43.275+0000] {processor.py:840} INFO - DAG(s) 'teste_docker_airflow' retrieved from /opt/airflow/dags/teste_docker.py
+[2025-12-16T00:31:43.299+0000] {logging_mixin.py:188} INFO - [2025-12-16T00:31:43.299+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-12-16T00:31:43.309+0000] {logging_mixin.py:188} INFO - [2025-12-16T00:31:43.309+0000] {dag.py:3823} INFO - Setting next_dagrun for teste_docker_airflow to None, run_after=None
+[2025-12-16T00:31:43.328+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/teste_docker.py took 0.075 seconds
+[2025-12-16T00:32:13.518+0000] {processor.py:161} INFO - Started process (PID=4429) to work on /opt/airflow/dags/teste_docker.py
+[2025-12-16T00:32:13.520+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/teste_docker.py for tasks to queue
+[2025-12-16T00:32:13.521+0000] {logging_mixin.py:188} INFO - [2025-12-16T00:32:13.521+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/teste_docker.py
+[2025-12-16T00:32:13.545+0000] {processor.py:840} INFO - DAG(s) 'teste_docker_airflow' retrieved from /opt/airflow/dags/teste_docker.py
+[2025-12-16T00:32:13.569+0000] {logging_mixin.py:188} INFO - [2025-12-16T00:32:13.569+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-12-16T00:32:13.580+0000] {logging_mixin.py:188} INFO - [2025-12-16T00:32:13.580+0000] {dag.py:3823} INFO - Setting next_dagrun for teste_docker_airflow to None, run_after=None
+[2025-12-16T00:32:13.600+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/teste_docker.py took 0.085 seconds
+[2025-12-16T00:32:43.761+0000] {processor.py:161} INFO - Started process (PID=4449) to work on /opt/airflow/dags/teste_docker.py
+[2025-12-16T00:32:43.763+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/teste_docker.py for tasks to queue
+[2025-12-16T00:32:43.764+0000] {logging_mixin.py:188} INFO - [2025-12-16T00:32:43.764+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/teste_docker.py
+[2025-12-16T00:32:43.802+0000] {processor.py:840} INFO - DAG(s) 'teste_docker_airflow' retrieved from /opt/airflow/dags/teste_docker.py
+[2025-12-16T00:32:43.831+0000] {logging_mixin.py:188} INFO - [2025-12-16T00:32:43.831+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-12-16T00:32:43.843+0000] {logging_mixin.py:188} INFO - [2025-12-16T00:32:43.843+0000] {dag.py:3823} INFO - Setting next_dagrun for teste_docker_airflow to None, run_after=None
+[2025-12-16T00:32:43.867+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/teste_docker.py took 0.110 seconds
+[2025-12-16T00:33:14.163+0000] {processor.py:161} INFO - Started process (PID=4469) to work on /opt/airflow/dags/teste_docker.py
+[2025-12-16T00:33:14.164+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/teste_docker.py for tasks to queue
+[2025-12-16T00:33:14.166+0000] {logging_mixin.py:188} INFO - [2025-12-16T00:33:14.165+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/teste_docker.py
+[2025-12-16T00:33:14.203+0000] {processor.py:840} INFO - DAG(s) 'teste_docker_airflow' retrieved from /opt/airflow/dags/teste_docker.py
+[2025-12-16T00:33:14.230+0000] {logging_mixin.py:188} INFO - [2025-12-16T00:33:14.229+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-12-16T00:33:14.239+0000] {logging_mixin.py:188} INFO - [2025-12-16T00:33:14.239+0000] {dag.py:3823} INFO - Setting next_dagrun for teste_docker_airflow to None, run_after=None
+[2025-12-16T00:33:14.266+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/teste_docker.py took 0.107 seconds
+[2025-12-16T00:33:44.518+0000] {processor.py:161} INFO - Started process (PID=4489) to work on /opt/airflow/dags/teste_docker.py
+[2025-12-16T00:33:44.519+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/teste_docker.py for tasks to queue
+[2025-12-16T00:33:44.521+0000] {logging_mixin.py:188} INFO - [2025-12-16T00:33:44.521+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/teste_docker.py
+[2025-12-16T00:33:44.550+0000] {processor.py:840} INFO - DAG(s) 'teste_docker_airflow' retrieved from /opt/airflow/dags/teste_docker.py
+[2025-12-16T00:33:44.581+0000] {logging_mixin.py:188} INFO - [2025-12-16T00:33:44.580+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-12-16T00:33:44.600+0000] {logging_mixin.py:188} INFO - [2025-12-16T00:33:44.599+0000] {dag.py:3823} INFO - Setting next_dagrun for teste_docker_airflow to None, run_after=None
+[2025-12-16T00:33:44.631+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/teste_docker.py took 0.117 seconds
+[2025-12-16T00:34:14.822+0000] {processor.py:161} INFO - Started process (PID=4509) to work on /opt/airflow/dags/teste_docker.py
+[2025-12-16T00:34:14.823+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/teste_docker.py for tasks to queue
+[2025-12-16T00:34:14.824+0000] {logging_mixin.py:188} INFO - [2025-12-16T00:34:14.824+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/teste_docker.py
+[2025-12-16T00:34:14.846+0000] {processor.py:840} INFO - DAG(s) 'teste_docker_airflow' retrieved from /opt/airflow/dags/teste_docker.py
+[2025-12-16T00:34:14.873+0000] {logging_mixin.py:188} INFO - [2025-12-16T00:34:14.873+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-12-16T00:34:14.883+0000] {logging_mixin.py:188} INFO - [2025-12-16T00:34:14.883+0000] {dag.py:3823} INFO - Setting next_dagrun for teste_docker_airflow to None, run_after=None
+[2025-12-16T00:34:14.908+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/teste_docker.py took 0.090 seconds
+[2025-12-16T00:34:45.120+0000] {processor.py:161} INFO - Started process (PID=4529) to work on /opt/airflow/dags/teste_docker.py
+[2025-12-16T00:34:45.122+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/teste_docker.py for tasks to queue
+[2025-12-16T00:34:45.123+0000] {logging_mixin.py:188} INFO - [2025-12-16T00:34:45.123+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/teste_docker.py
+[2025-12-16T00:34:45.160+0000] {processor.py:840} INFO - DAG(s) 'teste_docker_airflow' retrieved from /opt/airflow/dags/teste_docker.py
+[2025-12-16T00:34:45.188+0000] {logging_mixin.py:188} INFO - [2025-12-16T00:34:45.188+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-12-16T00:34:45.199+0000] {logging_mixin.py:188} INFO - [2025-12-16T00:34:45.199+0000] {dag.py:3823} INFO - Setting next_dagrun for teste_docker_airflow to None, run_after=None
+[2025-12-16T00:34:45.222+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/teste_docker.py took 0.107 seconds
+[2025-12-16T00:35:15.392+0000] {processor.py:161} INFO - Started process (PID=4555) to work on /opt/airflow/dags/teste_docker.py
+[2025-12-16T00:35:15.393+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/teste_docker.py for tasks to queue
+[2025-12-16T00:35:15.395+0000] {logging_mixin.py:188} INFO - [2025-12-16T00:35:15.395+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/teste_docker.py
+[2025-12-16T00:35:15.428+0000] {processor.py:840} INFO - DAG(s) 'teste_docker_airflow' retrieved from /opt/airflow/dags/teste_docker.py
+[2025-12-16T00:35:15.456+0000] {logging_mixin.py:188} INFO - [2025-12-16T00:35:15.456+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-12-16T00:35:15.466+0000] {logging_mixin.py:188} INFO - [2025-12-16T00:35:15.465+0000] {dag.py:3823} INFO - Setting next_dagrun for teste_docker_airflow to None, run_after=None
+[2025-12-16T00:35:15.489+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/teste_docker.py took 0.101 seconds
+[2025-12-16T00:35:45.788+0000] {processor.py:161} INFO - Started process (PID=4575) to work on /opt/airflow/dags/teste_docker.py
+[2025-12-16T00:35:45.790+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/teste_docker.py for tasks to queue
+[2025-12-16T00:35:45.791+0000] {logging_mixin.py:188} INFO - [2025-12-16T00:35:45.791+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/teste_docker.py
+[2025-12-16T00:35:45.813+0000] {processor.py:840} INFO - DAG(s) 'teste_docker_airflow' retrieved from /opt/airflow/dags/teste_docker.py
+[2025-12-16T00:35:45.839+0000] {logging_mixin.py:188} INFO - [2025-12-16T00:35:45.839+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-12-16T00:35:45.850+0000] {logging_mixin.py:188} INFO - [2025-12-16T00:35:45.850+0000] {dag.py:3823} INFO - Setting next_dagrun for teste_docker_airflow to None, run_after=None
+[2025-12-16T00:35:45.875+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/teste_docker.py took 0.089 seconds
