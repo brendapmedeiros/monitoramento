@@ -2,3 +2,6 @@ venv/
 env/
 .venv/
 .env
+/reports/
+/data/
+/logs/
