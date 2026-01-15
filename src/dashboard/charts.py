@@ -1,11 +1,11 @@
-
 import plotly.graph_objects as go
 import plotly.express as px
 import pandas as pd
 from typing import Dict
 
-    ## Quality Score ao longo do tempo
+
 def create_quality_score_timeline(df: pd.DataFrame) -> go.Figure:
+    """Gráfico de linha do qs ao longo do tempo"""
     
     fig = go.Figure()
     
@@ -20,12 +20,12 @@ def create_quality_score_timeline(df: pd.DataFrame) -> go.Figure:
         fillcolor='rgba(46, 134, 171, 0.1)'
     ))
     
-    # Linha de limite 
+    # Linha de threshold
     fig.add_hline(
         y=85, 
         line_dash="dash", 
         line_color="orange",
-        annotation_text="Limite (85%)"
+        annotation_text="Threshold (85%)"
     )
     
     fig.update_layout(
@@ -40,8 +40,8 @@ def create_quality_score_timeline(df: pd.DataFrame) -> go.Figure:
     return fig
 
 
-## Breakdown de metricas
 def create_metrics_breakdown(df: pd.DataFrame) -> go.Figure:
+    """Gráfico de barras com breakdown das métricas"""
     
     latest = df.iloc[-1]
     
@@ -78,6 +78,7 @@ def create_metrics_breakdown(df: pd.DataFrame) -> go.Figure:
 
 
 def create_anomalies_by_method(df: pd.DataFrame) -> go.Figure:
+    """Gráfico de barras empilhadas - anomalias por método"""
     
     fig = go.Figure()
     
@@ -147,6 +148,7 @@ def create_severity_pie(df: pd.DataFrame) -> go.Figure:
 
 
 def create_metrics_heatmap(df: pd.DataFrame) -> go.Figure:
+    """Heatmap das métricas ao longo do tempo"""
     
     metrics_cols = ['completeness', 'uniqueness', 'validity', 'consistency']
     
@@ -176,6 +178,7 @@ def create_metrics_heatmap(df: pd.DataFrame) -> go.Figure:
 
 
 def create_anomaly_trend(df: pd.DataFrame) -> go.Figure:
+    """Gráfico de tendência de anomalias"""
     
     fig = go.Figure()
     
@@ -188,6 +191,7 @@ def create_anomaly_trend(df: pd.DataFrame) -> go.Figure:
         marker=dict(size=8)
     ))
     
+    # Threshold de 5%
     fig.add_hline(
         y=5.0,
         line_dash="dash",

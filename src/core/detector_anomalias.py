@@ -101,9 +101,10 @@ class DetectorAnomalias:
             anomalies_by_method=anomalies_by_method,
             anomalies_by_column=anomalies_by_column,
             details={
-                'indices_anomalias': list(all_anomaly_indices),
-                'distribuicao_severity': self._calculate_severity(df, all_anomaly_indices)
-            }
+    'anomaly_indices': list(all_anomaly_indices),
+    'severity_distribution': self._calculate_severity(df, all_anomaly_indices)
+    }
+            
         )
         
         self.anomaly_history.append(report)
@@ -343,9 +344,9 @@ class DetectorAnomalias:
         
         print(f"""
  SEVERIDADE:                                            
-Alta: {report.details['distribuicao_severity']['high']}
-Média: {report.details['distribuicao_severity']['medium']}
-Baixa: {report.details['distribuicao_severity']['low']}
+Alta: {report.details['severity_distribution']['high']}
+Média: {report.details['severity_distribution']['medium']}
+Baixa: {report.details['severity_distribution']['low']}
 """)
 
 

@@ -147,7 +147,7 @@ with DAG(
                     'anomaly_percentage': report.anomaly_percentage,
                     'methods_used': report.methods_used,
                     'anomalies_by_method': report.anomalies_by_method,
-                    'severity_distribution': report.details['distribuicao_severity']
+                    'severity_distribution': report.details['severity_distribution']
                 }
             )
             

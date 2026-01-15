@@ -33,6 +33,16 @@ class ReportLoader:
             try:
                 with open(file, 'r', encoding='utf-8') as f:
                     data = json.load(f)
+                    if 'details' in data and isinstance(data['details'], dict):
+                                severity = data['details'].get('severity_distribution', {})
+                                data['severity_high'] = severity.get('high', 0)
+                                data['severity_medium'] = severity.get('medium', 0)
+                                data['severity_low'] = severity.get('low', 0)
+                    else:
+                                data['severity_high'] = 0
+                                data['severity_medium'] = 0
+                                data['severity_low'] = 0
+
                     reports.append(data)
             except Exception as e:
                 print(f"Erro ao ler {file}: {e}")
@@ -84,12 +94,20 @@ class ReportLoader:
     
     def get_anomalies_dataframe(self) -> pd.DataFrame:
         reports = self.load_anomaly_reports()
-        
+
         if not reports:
             return pd.DataFrame()
-        
-        df = pd.DataFrame([
-            {
+
+        rows = []
+
+        for r in reports:
+            severity = (
+                r.get('details', {}).get('severity_distribution')
+                or r.get('details', {}).get('distribuicao_severity')
+                or {}
+            )
+
+            rows.append({
                 'timestamp': r['timestamp'],
                 'dataset': r['dataset_name'],
                 'total_anomalies': r['total_anomalies'],
@@ -97,17 +115,14 @@ class ReportLoader:
                 'zscore': r['anomalies_by_method'].get('zscore', 0),
                 'iqr': r['anomalies_by_method'].get('iqr', 0),
                 'isolation_forest': r['anomalies_by_method'].get('isolation_forest', 0),
-                'severity_high': r['details']['distribuicao_severity']['high'],
-                'severity_medium': r['details']['distribuicao_severity']['medium'],
-                'severity_low': r['details']['distribuicao_severity']['low']
-            }
-            for r in reports
-        ])
-        
+                'severity_high': severity.get('high', 0),
+                'severity_medium': severity.get('medium', 0),
+                'severity_low': severity.get('low', 0),
+            })
+
+        df = pd.DataFrame(rows)
         df['timestamp'] = pd.to_datetime(df['timestamp'])
-        df = df.sort_values('timestamp')
-        
-        return df
+        return df.sort_values('timestamp')
     
             ## Retorna resultados resumidos
     def get_summary_stats(self) -> Dict:

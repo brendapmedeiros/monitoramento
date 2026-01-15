@@ -1,0 +1,19 @@
+slack:
+  webhook_url: "xxx"
+  channel: "#alertas-gerais"
+  enabled: true
+
+quality:
+  min_completeness: 0.95
+  min_uniqueness: 0.90
+  anomaly_threshold: 3.0
+
+monitoring:
+  check_interval_minutes: 30
+  data_sources:
+    - name: "users_table"
+      type: "database"
+      path: null
+    - name: "transactions.csv"
+      type: "csv"
+      path: "data/transactions.csv"

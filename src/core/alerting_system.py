@@ -304,3 +304,4 @@ if __name__ == "__main__":
     alerting.send_daily_summary()
     
     print("\n Testes concluídos!")
+    

@@ -2,7 +2,6 @@ import streamlit as st
 import sys
 from pathlib import Path
 
-
 sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 
 from src.dashboard.data_loader import ReportLoader
@@ -17,8 +16,8 @@ from src.dashboard.charts import (
 
 # Configuração da página
 st.set_page_config(
-    page_title="Monitor de Qualidade de Dados",
-    page_icon="✶",
+    page_title="Monitor de Qualidade",
+    page_icon="✤",
     layout="wide",
     initial_sidebar_state="expanded"
 )
@@ -63,28 +62,27 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
+# Inicializa loader
 @st.cache_resource
 def get_loader():
     return ReportLoader()
 
 loader = get_loader()
-
-# Sidebar
+# Barra lateral
 with st.sidebar:
-    st.image("https://img.icons8.com/clouds/200/000000/bar-chart.png", width=150)
-    st.title(" Monitor de Dados")
+    st.title("Monitor de Qualidade")
     st.markdown("---")
     
-    # Opções de navegação
+
     page = st.radio(
         "Navegação",
-        [" Home", " Métricas de Qualidade", " Anomalias", " Histórico"],
+        ["Visão geral", "Métricas de qualidade", "Anomalias", " Histórico"],
         label_visibility="collapsed"
     )
     
     st.markdown("---")
     
-
+    # Botão de refresh
     if st.button("Atualizar Dados", use_container_width=True):
         st.cache_resource.clear()
         st.rerun()
@@ -93,9 +91,6 @@ with st.sidebar:
     st.markdown("---")
     st.caption("Sistema de Monitoramento")
     st.caption("Versão 1.0.0")
-
-# Header
-st.markdown('<h1 class="main-header"> Monitor de Qualidade de Dados</h1>', unsafe_allow_html=True)
 
 # Carrega dados
 try:
@@ -110,13 +105,13 @@ except Exception as e:
     has_data = False
 
 # Home
-if page == " Home":
+if page == "Visão geral":
     
     if not has_data:
-        st.warning(" Nenhum dado disponível ainda.")
+        st.warning("Nenhum dado disponível.")
         st.stop()
     
-    # Indicadores principais
+# Métricas principais
     col1, col2, col3, col4 = st.columns(4)
     
     with col1:
@@ -134,7 +129,7 @@ if page == " Home":
         )
     
     with col3:
-        status_icon = "✅" if summary['alert_sent'] else "❌"
+        status_icon = "Enviado" if summary['alert_sent'] else "Não Enviado"
         st.metric(
             label="Status do Alerta",
             value=status_icon,
@@ -150,7 +145,7 @@ if page == " Home":
     
     st.markdown("---")
     
-    # Gráficos principais
+# Gráficos
     col1, col2 = st.columns(2)
     
     with col1:
@@ -182,17 +177,14 @@ if page == " Home":
             unsafe_allow_html=True
         )
 
-# Métricas
-elif page == " Métricas de Qualidade":
+# Página de métricas
+elif page == "Métricas de qualidade":
     
     if not has_data:
-        st.warning(" Nenhum dado disponível ainda.")
+        st.warning("Nenhum dado disponível ainda.")
         st.stop()
     
-    st.header(" Análise de Métricas de Qualidade")
-    
     # Timeline
-    st.subheader("Evolução Temporal")
     st.plotly_chart(
         create_quality_score_timeline(metrics_df),
         use_container_width=True
@@ -228,16 +220,14 @@ elif page == " Métricas de Qualidade":
     )
 
 # Anomalias
-elif page == " Anomalias":
+elif page == "Anomalias":
     
     if not has_data:
         st.warning("Nenhum dado disponível ainda.")
         st.stop()
-    
-    st.header(" Detecção de Anomalias")
+
     
     # Tendência
-    st.subheader("Tendência de Anomalias")
     st.plotly_chart(
         create_anomaly_trend(anomalies_df),
         use_container_width=True
@@ -271,15 +261,14 @@ elif page == " Anomalias":
     st.dataframe(display_df, use_container_width=True, hide_index=True)
 
 # Histórico
-elif page == "📋 Histórico":
+elif page == " Histórico":
     
     if not has_data:
         st.warning("Nenhum dado disponível ainda.")
         st.stop()
     
-    st.header("Histórico de Execuções")
     
-    # Visão geral
+    # Estatísticas gerais
     col1, col2, col3 = st.columns(3)
     
     with col1:
@@ -297,8 +286,8 @@ elif page == "📋 Histórico":
     
     st.markdown("---")
     
-    # Abas de visualização
-    tab1, tab2, tab3 = st.tabs([" Métricas", " Anomalias", " Relatórios"])
+    # Tabs para diferentes visualizações
+    tab1, tab2, tab3 = st.tabs(["Métricas", "Anomalias", "Relatórios"])
     
     with tab1:
         st.dataframe(
@@ -311,11 +300,11 @@ elif page == "📋 Histórico":
         st.dataframe(anomalies_df, use_container_width=True, hide_index=True)
     
     with tab3:
-        # Lista todos os relatórios
+        # Lista todos os relatórios finais
         reports = loader.load_final_reports()
         
         if reports:
-            st.subheader(f" {len(reports)} Relatórios Disponíveis")
+            st.subheader(f"{len(reports)} Relatórios Disponíveis")
             
             for idx, report in enumerate(reversed(reports), 1):
                 with st.expander(f"Relatório #{len(reports) - idx + 1} - {report['execution_info']['timestamp'][:19]}"):
@@ -327,6 +316,5 @@ elif page == "📋 Histórico":
                     with col2:
                         st.json(report['anomaly_report'])
 
-# rodapé
 st.markdown("---")
-st.caption("Sistema de Monitoramento de Qualidade de Dados | Visualização  v1.0 ")
+st.caption(" Sistema de Monitoramento de Qualidade de Dados | Desenvolvido com Streamlit")
