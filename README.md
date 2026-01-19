@@ -1,5 +1,5 @@
 
-![CI](https://github.com/SEU_USUARIO/monitoramento/actions/workflows/ci.yml/badge.svg) 
+![CI](https://github.com/brendapmedeiros/monitoramento/actions/workflows/ci.yml/badge.svg) 
 ![Python](https://img.shields.io/badge/python-3.9%2B-blue) 
 ![License](https://img.shields.io/badge/license-MIT-green) 
 
@@ -67,14 +67,14 @@ python -m venv venv
 # Instale as dependências
 pip install -r requirements.txt
 
--️ Configuração
+# Configuração
 1. Alertas via Slack (opcional)
 
 Crie um webhook em: https://api.slack.com/messaging/webhooks
 
 Informe a URL no arquivo:
 
-# config/config.yaml
+> config/config.yaml
 
 alerting:
   slack_webhook_url: "https://hooks.slack.com/..."
