@@ -65,7 +65,7 @@ def create_metrics_breakdown(df: pd.DataFrame) -> go.Figure:
     ))
     
     fig.update_layout(
-        title=" Métricas de qualidade conforme a última execução)",
+        title=" Métricas de qualidade conforme a última execução",
         yaxis_title="Pontuação (%)",
         template='plotly_white',
         height=400,
