@@ -209,9 +209,9 @@ class DataQualityMetrics:
         Executa análise completa de qualidade do dataset
         
         Args:
-            df: DataFrame para análise
-            key_columns: Colunas chave para verificar duplicatas
-            validation_rules: Regras customizadas de validação
+            df: dados para análise
+            key_columns: colunas chave para verificar duplicatas
+            validation_rules: regras customizadas de validação
             
         Returns:
             QualityMetrics com todas as métricas calculadas
@@ -269,9 +269,9 @@ class DataQualityMetrics:
         """
         summary = f"""
 
-                RELATÓRIO DE QUALIDADE                 
+                Relatório de Qualidade                 
 
- ataset: {metrics.dataset_name:<43} 
+ dataset: {metrics.dataset_name:<43} 
  Timestamp: {metrics.timestamp:<41} 
  Dimensões: {metrics.total_rows} linhas x {metrics.total_columns} colunas{' '*(27-len(str(metrics.total_rows))-len(str(metrics.total_columns)))} 
  MÉTRICAS DE QUALIDADE:                               
@@ -318,18 +318,18 @@ class DataQualityMetrics:
         except Exception as e:
             logger.error(f"Erro ao carregar histórico: {str(e)}")
     
-    # Métodos auxiliares privados
+
     
     def _get_default_validations(self, df: pd.DataFrame) -> Dict:
-        """Retorna validações padrão baseadas no schema do dataframe"""
+        ## validação padrão baseada no schema dos dados
         validations = {}
         
-        # Validações para colunas numéricas
+        # validação para numéricos
         numeric_cols = df.select_dtypes(include=[np.number]).columns
         for col in numeric_cols:
             validations[f'{col}_no_negatives'] = lambda x, c=col: x[c] >= 0
         
-        # Validações para colunas de texto
+        # validações para texto
         text_cols = df.select_dtypes(include=['object']).columns
         for col in text_cols:
             validations[f'{col}_not_empty'] = lambda x, c=col: x[c].str.len() > 0
@@ -337,21 +337,20 @@ class DataQualityMetrics:
         return validations
     
     def _check_dtype_consistency(self, series: pd.Series) -> float:
-        """Verifica consistência de tipos de dados"""
+        # verifica consistência de tipos de dadod
         try:
             if series.dtype == 'object':
-                # Para strings, verificar se não há valores misturados
                 type_counts = series.apply(type).value_counts()
                 consistency = (type_counts.iloc[0] / len(series)) * 100
             else:
-                # Para tipos numéricos, considerar 100% consistente
+                # numéricos considera 100% consistente
                 consistency = 100.0
             return consistency
         except:
             return 100.0
     
     def _check_range_consistency(self, series: pd.Series) -> float:
-        """Verifica se valores estão em range razoável"""
+        ## verifica range
         try:
             Q1 = series.quantile(0.25)
             Q3 = series.quantile(0.75)

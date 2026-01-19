@@ -244,7 +244,7 @@ def quick_anomaly_check(metric_name: str,
     return system.check_anomalies(metric_name, value, expected_range)
 
 
-# Exemplo de uso
+# Exemplo 
 if __name__ == "__main__":
     alerting = AlertingSystem(
         enable_slack=True,
@@ -280,7 +280,7 @@ if __name__ == "__main__":
     print("\n3️ Testando erro de pipeline...")
     alerting.report_pipeline_error(
         pipeline_name="daily_ingestion",
-        error_message="Database connection timeout after 30s",
+        error_message="Database connection timeout 30s",
         severity=AlertSeverity.CRITICAL
     )
     

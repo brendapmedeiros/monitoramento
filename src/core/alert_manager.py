@@ -84,7 +84,7 @@ class AlertRateLimiter:
 
         if len(self.alert_history[alert_key]) >= self.max_alerts_per_hour:
             self.cooldown_until[alert_key] = now + timedelta(minutes=self.cooldown_minutes)
-            return False, f"Limite de {self.max_alerts_per_hour} alertas/hora atingido"
+            return False, f"Limite de {self.max_alerts_per_hour} alertas por hora atingido"
         
 
         self.alert_history[alert_key].append(now)

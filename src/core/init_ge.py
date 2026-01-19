@@ -115,11 +115,11 @@ def create_expectation_suite(context, suite_name="sales_quality_suite"):
 
 def add_expectations_to_suite(context, suite_name="sales_quality_suite"):
   
-    #Adiciona expectations na suite de validação
+    # adiciona expectations na suite de validação
  
     print(f"\n Adicionando expectations na suite '{suite_name}'.")
     
-    # Batch para criar expectations
+    # batch para criar expectations
     batch_request = BatchRequest(
         datasource_name="sales_datasource",
         data_connector_name="default_inferred_data_connector",
@@ -133,7 +133,7 @@ def add_expectations_to_suite(context, suite_name="sales_quality_suite"):
         
     expectations_added = []
     
-    # Colunas esperadas
+    # colunas esperadas
     validator.expect_table_columns_to_match_ordered_list(
         column_list=[
             'transaction_id', 'date', 'customer_id', 'product_id',
@@ -143,7 +143,7 @@ def add_expectations_to_suite(context, suite_name="sales_quality_suite"):
     )
     expectations_added.append("Colunas esperadas")
     
-    # Nenhum null na coluna transaction_id
+    # nenhum campo vazio na coluna transaction_id
     validator.expect_column_values_to_not_be_null(column="transaction_id")
     expectations_added.append("transaction_id não-nulo")
     
@@ -174,7 +174,7 @@ def add_expectations_to_suite(context, suite_name="sales_quality_suite"):
     )
     expectations_added.append("status em conjunto válido")
     
-    # Coluna Region deve conter valores dentre os listados
+    # region deve conter valores dentre os listados
     validator.expect_column_values_to_be_in_set(
         column="region",
         value_set=['North', 'South', 'East', 'West']

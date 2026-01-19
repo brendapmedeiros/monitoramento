@@ -13,6 +13,6 @@ print(f" Conectado como: {response['user']}")
 print("\n Enviando mensagem de teste...")
 result = client.chat_postMessage(
     channel=os.getenv("SLACK_CHANNEL_ID"),
-    text="Tudo certo, o sistema de notificações está configurado! "
+    text="Tudo certo, o sistema de notificações está configurado. "
 )
-print(f"Mensagem enviada! (ts: {result['ts']})")
+print(f"Mensagem enviada. (ts: {result['ts']})")

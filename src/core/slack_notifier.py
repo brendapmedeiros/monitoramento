@@ -68,17 +68,8 @@ class SlackNotifier:
                    alert: Alert, 
                    channel: Optional[str] = None,
                    mention_users: Optional[List[str]] = None) -> bool:
-        """
-        Envia alerta com retry automático
-        
-        Args:
-            alert: Objeto a ser enviado
-            channel: Canal de destino (usa default se não especificado)
-            mention_users: Lista de user IDs para mencionar (@user)
-            
-        Returns:
-            True se enviado 
-        """
+  # envia alerta com retry automático
+
         channel = channel or self.default_channel
         
         if not channel:
@@ -94,7 +85,7 @@ class SlackNotifier:
                 text=f"{alert.severity.value.upper()}: {alert.title}"  
             )
             
-            logger.info(f"✅ Alerta enviado: {alert.title} (ts: {response['ts']})")
+            logger.info(f" Alerta enviado: {alert.title} (ts: {response['ts']})")
             return True
             
         except SlackApiError as e:
@@ -172,7 +163,7 @@ class SlackNotifier:
                     "fields": fields
                 })
         
-        # Metadata adicional para controle
+        # metadata adicional para controle
         if alert.metadata:
             metadata_text = "\n".join([
                 f"• *{k}:* {v}" 
@@ -186,7 +177,7 @@ class SlackNotifier:
                 }
             })
         
-        # Menções
+        #menções
         if mention_users:
             mentions = " ".join([f"<@{user_id}>" for user_id in mention_users])
             blocks.append({
@@ -197,7 +188,7 @@ class SlackNotifier:
                 }]
             })
         
-        # Cor lateral 
+        #cor lateral 
         blocks.append({
             "type": "context",
             "elements": [{
@@ -218,7 +209,7 @@ class SlackNotifier:
     def send_summary(self, 
                     summary: Dict,
                     channel: Optional[str] = None) -> bool:
-        """Envia resumo de alertas do dia"""
+       ##envia resumo de alertas do dia
         channel = channel or self.default_channel
         
         blocks = [
@@ -226,7 +217,7 @@ class SlackNotifier:
                 "type": "header",
                 "text": {
                     "type": "plain_text",
-                    "text": "📊 Resumo Diário",
+                    "text": " Resumo Diário",
                     "emoji": True
                 }
             },
@@ -246,7 +237,7 @@ class SlackNotifier:
             {"type": "divider"}
         ]
         
-        # Por severidade
+        # por severidade
         by_severity = summary.get('by_severity', {})
         if by_severity:
             severity_text = "\n".join([
@@ -261,7 +252,7 @@ class SlackNotifier:
                 }
             })
         
-        # Por fonte
+        # por fonte
         by_source = summary.get('by_source', {})
         if by_source:
             source_text = "\n".join([
@@ -292,7 +283,7 @@ class SlackNotifier:
                  title: str,
                  channel: Optional[str] = None,
                  comment: Optional[str] = None) -> bool:
-        ## Envia arquivo para o Slack
+        ## evia arquivo para o slack
         channel = channel or self.default_channel
         
         try:
@@ -309,7 +300,7 @@ class SlackNotifier:
             return False
 
 
-# Exemplo de uso
+# exemplo
 if __name__ == "__main__":
     from dotenv import load_dotenv
     from alert_manager import create_quality_alert, create_anomaly_alert
@@ -317,13 +308,13 @@ if __name__ == "__main__":
 
     load_dotenv()
     
-## Teste
+#teste
     logging.basicConfig(level=logging.INFO)
 
     try:
         notifier = SlackNotifier()
         
-        # Testa diferentes tipos de alertas
+        # testa  tipos de alerta
         alerts = [
             create_quality_alert("completeness", 0.85, 0.95, AlertSeverity.WARNING),
             create_anomaly_alert("row_count", 5000, (10000, 15000), AlertSeverity.ERROR),
@@ -333,7 +324,7 @@ if __name__ == "__main__":
             success = notifier.send_alert(alert)
             print(f"Alert enviado: {success}")
         
-        # Envia resumo
+        #envia resumo
         summary = {
             "total_alerts": 25,
             "last_24h": 5,

@@ -4,7 +4,7 @@ from typing import List, Dict, Optional
 from datetime import datetime
 import pandas as pd
 
-##Carrega relatórios do diretório
+## carrega relatórios do diretório
 class ReportLoader:
 
     
@@ -124,7 +124,7 @@ class ReportLoader:
         df['timestamp'] = pd.to_datetime(df['timestamp'])
         return df.sort_values('timestamp')
     
-            ## Retorna resultados resumidos
+            # retorna resultados resumidos
     def get_summary_stats(self) -> Dict:
         latest = self.get_latest_report()
         

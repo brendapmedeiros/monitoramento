@@ -160,7 +160,7 @@ if page == "Visão geral":
             use_container_width=True
         )
     
-    # Status box
+    # Status 
     if summary['quality_score'] >= 95:
         st.markdown(
             '<div class="success-box"><strong>Excelente!</strong> Qualidade dos dados acima de 95%.</div>',
