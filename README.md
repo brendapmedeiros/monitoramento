@@ -99,42 +99,17 @@ quality:
 
 Esses parâmetros controlam quando uma execução é considerada saudável ou inconsistente.
 
+# Como Usar
 
-Configuração
+# Execução via CLI
 
-**Configure o Slack** (opcional):
- - Crie um webhook em https://api.slack.com/messaging/webhooks 
- - Adicione a URL no config/config.yaml  
- 
- **Configure as fontes de dados**:
-yaml
-   monitoring:
-     data_sources:
-       - name: "users_table"
-         type: "database"
-         path: null
-       - name: "transactions"
-         type: "csv"
-         path: "data/transactions.csv"
-
-3. **Ajuste os limites de qualidade**:
-yaml
-   quality:
-     min_completeness: 0.95
-     min_uniqueness: 0.90
-     anomaly_threshold: 3.0
-
-
-▶ Como Usar
-
-Execução via CLI
-# Exibe a configuração atual
+-  Exibe a configuração atual
 python -m cli.config_cli show
 
-# Valida as fontes configuradas
+- Valida as fontes configuradas
 python -m cli.config_cli validate
 
-# Executa o monitoramento
+- Executa o monitoramento
 python -m src.monitoring.runner
 
 
