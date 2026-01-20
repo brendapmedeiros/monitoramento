@@ -3,6 +3,8 @@ great-expectations==0.18.19
 pandas==2.1.4
 numpy==1.26.2
 sqlalchemy==2.0.23
+matplotlib==3.8.2
+plotly==5.18.0
 
 # Data quality/validação
 pydantic==2.5.2
