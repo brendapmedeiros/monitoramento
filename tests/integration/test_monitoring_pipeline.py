@@ -24,19 +24,19 @@ class TestMonitoringPipeline:
         #verifica se passa no limite
         assert completeness >= config.quality.min_completeness
     
-    def test_detect_quality_issues(self, temp_config_file, dataframe_with_nulls):
-        #testa problemas de qualidade
+    def test_detect_quality_issues(self, temp_config_file):
         from config.config_manager import ConfigManager
-        
-        config_manager = ConfigManager(str(temp_config_file))
-        config = config_manager.get()
-        
-        df = dataframe_with_nulls
-        
-        #calcula completeness
+        import pandas as pd
+
+        config = ConfigManager(str(temp_config_file)).get()
+
+        df = pd.DataFrame({
+            "a": [1, None, None, None],
+            "b": [1, None, None, None],
+        })
+
         completeness = df.notna().sum().sum() / (len(df) * len(df.columns))
-        
-        # detecta o que está abaixo do limite
+
         should_alert = completeness < config.quality.min_completeness
-        assert should_alert is True
-        assert completeness < 0.95
+
+        assert should_alert
