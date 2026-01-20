@@ -119,12 +119,15 @@ Esses parâmetros controlam quando uma execução é considerada saudável ou in
 -- Execução via CLI
 
 -  Exibe a configuração atual
+
 python -m cli.config_cli show
 
 - Valida as fontes configuradas
+
 python -m cli.config_cli validate
 
 - Executa o monitoramento
+
 python -m src.monitoring.runner
 
 
