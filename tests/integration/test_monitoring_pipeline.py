@@ -39,3 +39,4 @@ class TestMonitoringPipeline:
         # detecta o que está abaixo do limite
         should_alert = completeness < config.quality.min_completeness
         assert should_alert is True
+        assert completeness < 0.95
