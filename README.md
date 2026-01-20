@@ -153,22 +153,25 @@ Acesse: http://localhost:8501
  # Testes
 
 - Todos os testes
+
 pytest
 
 - Testes unitários
+
 pytest tests/unit -v
 
 - Testes de integração
+
 pytest tests/integration -v
 
 
 
 
 
-Brenda Medeiros
+# Brenda Medeiros
 
-Analista com foco em Engenharia e Observabilidade de Dados
+- Analista com foco em Engenharia e Observabilidade de Dados
 
-GitHub: [@brendapmedeiros](https://github.com/brendapmedeiros)
+- GitHub: [@brendapmedeiros](https://github.com/brendapmedeiros)
 
-LinkedIn: [brenda-pm](https://www.linkedin.com/in/brenda-pm/)
+- LinkedIn: [brenda-pm](https://www.linkedin.com/in/brenda-pm/)
