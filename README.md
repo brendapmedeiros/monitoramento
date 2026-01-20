@@ -76,23 +76,37 @@ Informe a URL no arquivo:
 > config/config.yaml
 
 alerting:
+
   slack_webhook_url: "https://hooks.slack.com/..."
 
 - Fontes de dados a serem monitoradas
+
 monitoring:
+
   data_sources:
+
     - name: "users_table"
+
       type: "database"
+
       path: null
 
+
     - name: "transactions"
+
       type: "csv"
+
       path: "data/transactions.csv"
 
+
 - Limites de qualidade e anomalias
+
 quality:
+
   min_completeness: 0.95
+
   min_uniqueness: 0.90
+
   anomaly_threshold: 3.0
 
 
@@ -100,7 +114,7 @@ Esses parâmetros controlam quando uma execução é considerada saudável ou in
 
 # Como Usar
 
-# Execução via CLI
+-- Execução via CLI
 
 -  Exibe a configuração atual
 python -m cli.config_cli show
@@ -112,7 +126,7 @@ python -m cli.config_cli validate
 python -m src.monitoring.runner
 
 
-# Dashboard
+-- Dashboard
 
 O dashboard consome os relatórios gerados pelo pipeline e apresenta:
 
@@ -143,7 +157,10 @@ pytest tests/integration -v
 
 
 
+
+
 Brenda Medeiros
+
 Analista com foco em Engenharia e Observabilidade de Dados
 
 GitHub: [@brendapmedeiros](https://github.com/brendapmedeiros)
