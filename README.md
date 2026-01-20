@@ -55,15 +55,15 @@ Python 3.9+
 
 pip
 
-Setup rápido
-# Clone o repositório
+# Setup rápido
+- Clone o repositório
 git clone https://github.com/brendapmedeiros/monitoramento.git
 cd monitoramento
 
-# Crie o ambiente virtual
+- Crie o ambiente virtual
 python -m venv venv
 
-# Instale as dependências
+- Instale as dependências
 pip install -r requirements.txt
 
 # Configuração
@@ -79,11 +79,11 @@ alerting:
 
   slack_webhook_url: "https://hooks.slack.com/..."
 
-- Fontes de dados a serem monitoradas
+- Fontes de dados a serem monitoradas:
 
-monitoring:
+    monitoring:
 
-  data_sources:
+    data_sources:
 
     - name: "users_table"
 
@@ -99,9 +99,9 @@ monitoring:
       path: "data/transactions.csv"
 
 
-- Limites de qualidade e anomalias
+- Limites de qualidade e anomalias:
 
-quality:
+  quality:
 
   min_completeness: 0.95
 
@@ -145,7 +145,8 @@ streamlit run src/dashboard/app.py
 
 Acesse: http://localhost:8501
 
- Testes
+ # Testes
+
 # Todos os testes
 pytest
 
