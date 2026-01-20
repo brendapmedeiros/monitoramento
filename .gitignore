@@ -5,3 +5,4 @@ env/
 /reports/
 /data/
 /logs/
+docker-compose.yaml
