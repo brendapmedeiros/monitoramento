@@ -152,13 +152,13 @@ Acesse: http://localhost:8501
 
  # Testes
 
-# Todos os testes
+- Todos os testes
 pytest
 
-# Testes unitários
+- Testes unitários
 pytest tests/unit -v
 
-# Testes de integração
+- Testes de integração
 pytest tests/integration -v
 
 
