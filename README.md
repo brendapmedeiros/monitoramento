@@ -3,7 +3,7 @@
 ![License](https://img.shields.io/badge/license-MIT-green) 
 
 
-Sistema modular para monitoramento contínuo da qualidade de dados, com métricas padronizadas, detecção de anomalias, alertas automáticos e visualização analítica.
+# Sistema modular para monitoramento contínuo da qualidade de dados, com métricas padronizadas, detecção de anomalias, alertas automáticos e visualização analítica.
 
 Em ambientes orientados a dados, problemas de qualidade raramente falham de forma explícita,eles se propagam silenciosamente para dashboards, modelos e decisões de negócio.
 
