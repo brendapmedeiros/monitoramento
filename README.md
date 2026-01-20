@@ -57,7 +57,9 @@ pip
 
 # Setup rápido
 - Clone o repositório
+
 git clone https://github.com/brendapmedeiros/monitoramento.git
+
 cd monitoramento
 
 - Crie o ambiente virtual
